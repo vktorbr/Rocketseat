@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Curso Javascript</title>
+    </head>
+    <body>
+        <div id="app">
+            <button id="botao" >Clique</button>
+            <div id="boxes"></div>
+        </div>
+        <script>
+            var botao = document.querySelector('#botao');
+            botao.onclick = function(){
+                var boxElement = document.createElement('div');
+                boxElement.setAttribute('class', 'bx');
+                boxElement.setAttribute('onmouseover', 'mudarCor(this)');
+                boxElement.style.width = 100;
+                boxElement.style.height = 100;
+                boxElement.style.backgroundColor = 'red';
+                boxElement.style.position = 'relative';
+                boxElement.style.float = 'left';
+                
+                var div = document.querySelector('#boxes');
+                div.append(boxElement);
+            }
+
+            function mudarCor(element){
+                var newColor = getRandomColor();
+                var boxId = element.id;
+                element.style.backgroundColor = newColor;
+            }
+
+            function getRandomColor() {
+                var letters = "0123456789ABCDEF";
+                var color = "#";
+                for (var i = 0; i < 6; i++) {
+                    color += letters[Math.floor(Math.random() * 16)];
+                }
+                return color;
+            }   
+            var newColor = getRandomColor(); // #E943F0
+
+        </script>
+    </body>
+</html>
